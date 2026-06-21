@@ -42,4 +42,24 @@ def cadastrar_produtos():
         print(f"Erro: {erro}")
         return None
 
-cadastrar_produtos()
+produtos = []
+
+while(True):
+    produto = cadastrar_produtos()
+    if produto is not None:
+        produtos.append(produto)
+    continuar = input("Deseja cadastrar outro produto? [s/n]")
+
+    if continuar != "s":
+        break
+
+def listar_produtos():
+    for produto in produtos:
+        print("------------------")
+        print("ID:", produto.numid)
+        print("Produto:", produto.nome)
+        print("Preço de venda:", produto.preco_venda)
+        print("Estoque:", produto.estoque)
+
+def registrar_venda():
+    
