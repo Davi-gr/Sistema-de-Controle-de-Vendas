@@ -92,7 +92,7 @@ def registrar_venda():
             produto.estoque -= quantidade_vendida
             preco_final_unitario = produto.preco_venda - desconto
             total = preco_final_unitario * quantidade_vendida
-            lucro = (total - produto.preco_compra) *quantidade_vendida
+            lucro = (preco_final_unitario - produto.preco_compra) *quantidade_vendida
 
             return {
             "produto": produto.nome,
@@ -102,7 +102,7 @@ def registrar_venda():
             }
     return None        
 
+print("---- Venda Iniciada ----")
 venda = registrar_venda()
-
 if venda is not None:
     print("Total da venda:", venda["total"])
